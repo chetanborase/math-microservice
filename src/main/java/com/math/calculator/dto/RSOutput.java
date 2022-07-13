@@ -1,6 +1,6 @@
-package com.math.basicoperations.dto;
+package com.math.calculator.dto;
 
-public class MathResponse {
+public class RSOutput {
     private Double addition;
     private Double subtraction;
     private Double multiplication;

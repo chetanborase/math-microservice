@@ -1,4 +1,4 @@
-package com.math.basicoperations;
+package com.math.calculator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
