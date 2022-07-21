@@ -17,8 +17,23 @@ class Calculator {
     @Autowired
     private CalculatorService calculatorService;
 
-    @PostMapping
-    public RSOutput calculate(@Valid @RequestBody RQInput request) {
-        return calculatorService.doBasicOperation(request);
+    @PostMapping("add")
+    public RSOutput add(@Valid @RequestBody RQInput request) {
+        return calculatorService.addition(request);
+    }
+
+    @PostMapping("sub")
+    public RSOutput sub(@Valid @RequestBody RQInput request) {
+        return calculatorService.subtraction(request);
+    }
+
+    @PostMapping("multiply")
+    public RSOutput multiply(@Valid @RequestBody RQInput request) {
+        return calculatorService.multiplication(request);
+    }
+
+    @PostMapping("divide")
+    public RSOutput divide(@Valid @RequestBody RQInput request) {
+        return calculatorService.division(request);
     }
 }

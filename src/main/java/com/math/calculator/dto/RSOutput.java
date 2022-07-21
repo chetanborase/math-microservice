@@ -1,40 +1,20 @@
 package com.math.calculator.dto;
 
 public class RSOutput {
-    private Double addition;
-    private Double subtraction;
-    private Double multiplication;
-    private Double division;
+    private Double answer;
 
-    public Double getAddition() {
-        return addition;
+    public RSOutput() {
     }
 
-    public void setAddition(Double addition) {
-        this.addition = addition;
+    public RSOutput(Double answer) {
+        this.answer = answer;
     }
 
-    public Double getSubtraction() {
-        return subtraction;
+    public Double getAnswer() {
+        return answer;
     }
 
-    public void setSubtraction(Double subtraction) {
-        this.subtraction = subtraction;
-    }
-
-    public Double getMultiplication() {
-        return multiplication;
-    }
-
-    public void setMultiplication(Double multiplication) {
-        this.multiplication = multiplication;
-    }
-
-    public Double getDivision() {
-        return division;
-    }
-
-    public void setDivision(Double division) {
-        this.division = division;
+    public void setAnswer(Double answer) {
+        this.answer = answer;
     }
 }

@@ -5,14 +5,30 @@ import com.math.calculator.dto.RSOutput;
 import org.springframework.stereotype.Service;
 
 @Service
-public  class CalculatorService {
-    public RSOutput doBasicOperation(RQInput data){
-        RSOutput result = new RSOutput();
-        result.setAddition(data.getFirstNumber() + data.getSecondNumber());
-        result.setSubtraction(data.getFirstNumber() - data.getSecondNumber());
-        result.setMultiplication(data.getFirstNumber() * data.getSecondNumber());
-        result.setDivision(data.getFirstNumber() / data.getSecondNumber());
+public class CalculatorService {
 
+
+    public RSOutput addition(RQInput input) {
+        RSOutput result = new RSOutput();
+        result.setAnswer(input.getFirstNumber() + input.getSecondNumber());
+        return result;
+    }
+
+    public RSOutput subtraction(RQInput input) {
+        RSOutput result = new RSOutput();
+        result.setAnswer(input.getFirstNumber() - input.getSecondNumber());
+        return result;
+    }
+
+    public RSOutput multiplication(RQInput input) {
+        RSOutput result = new RSOutput();
+        result.setAnswer(input.getFirstNumber() * input.getSecondNumber());
+        return result;
+    }
+
+    public RSOutput division(RQInput input) {
+        RSOutput result = new RSOutput();
+        result.setAnswer(input.getFirstNumber() / input.getSecondNumber());
         return result;
     }
 }
