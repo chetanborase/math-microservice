@@ -1,13 +1,13 @@
 package com.math.calculator.controller;
 
+import com.math.calculator.dto.ErrorResponse;
 import com.math.calculator.dto.RQInput;
 import com.math.calculator.dto.RSOutput;
+import com.math.calculator.exception.DivideByZeroException;
 import com.math.calculator.service.CalculatorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -33,7 +33,16 @@ class Calculator {
     }
 
     @PostMapping("divide")
-    public RSOutput divide(@Valid @RequestBody RQInput request) {
+    public RSOutput divide(@Valid @RequestBody RQInput request) throws DivideByZeroException {
         return calculatorService.division(request);
     }
+
+    @ExceptionHandler(value = DivideByZeroException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse handleDivideByZero(DivideByZeroException e) {
+        ErrorResponse response = new ErrorResponse();
+        response.setMessage(e.getMessage());
+        return response;
+    }
+
 }
